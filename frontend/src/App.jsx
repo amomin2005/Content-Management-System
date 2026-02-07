@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const features = [
+  {
+    title: 'Clean Layout',
+    description: 'A simple visual hierarchy with generous spacing and balanced sections.',
+    emoji: '🧼',
+  },
+  {
+    title: 'Modern Styling',
+    description: 'Soft gradients, subtle shadows, and rounded cards for a polished look.',
+    emoji: '🎨',
+  },
+  {
+    title: 'Fast & Responsive',
+    description: 'Looks great on desktop and mobile with flexible responsive design.',
+    emoji: '⚡',
+  },
+]
 
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+    <main className="app">
+      <section className="hero">
+        <p className="badge">Simple React Frontend</p>
+        <h1>Beautiful, Minimal, and Ready to Use</h1>
+        <p className="subtitle">
+          This page was redesigned to be visually clean and modern while staying very simple.
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+        <button type="button" className="cta">
+          Get Started
+        </button>
+      </section>
+
+      <section className="features" aria-label="Key features">
+        {features.map((feature) => (
+          <article className="feature-card" key={feature.title}>
+            <span className="feature-icon" aria-hidden="true">
+              {feature.emoji}
+            </span>
+            <h2>{feature.title}</h2>
+            <p>{feature.description}</p>
+          </article>
+        ))}
+      </section>
+    </main>
   )
 }
 
